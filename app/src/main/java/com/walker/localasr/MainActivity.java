@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         return new File(d, "encoder-epoch-99-avg-1.int8.onnx").exists()
             && new File(d, "decoder-epoch-99-avg-1.onnx").exists()
             && new File(d, "joiner-epoch-99-avg-1.int8.onnx").exists()
-            && new File(d, "tokens.txt").exists();
+            && new File(d, "tokens.txt").exists()
+            && new File(d, "bpe.model").exists();
     }
 
     private void toggle() {
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startAsr() {
         if (!modelReady()) {
-            status.setText("模型未找到：请按 README 下载中英 INT8 模型到 app 专属 model 目录");
+            status.setText("模型未找到：请按 README 下载 small 中英 INT8 模型");
             return;
         }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         OnlineModelConfig model = OnlineModelConfig.builder()
                 .setTransducer(transducer)
                 .setTokens(new File(d, "tokens.txt").getAbsolutePath())
+                .setModelingUnit("bpe")
+                .setBpeVocab(new File(d, "bpe.model").getAbsolutePath())
                 .setNumThreads(1)
                 .setDebug(false)
                 .build();
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         stream = recognizer.createStream();
         running = true;
         start.setText("停止识别");
-        status.setText("● 正在本地实时识别 · 中文 + English");
+        status.setText("● 正在本地实时识别 · 中文 + English · small INT8");
 
         worker = new Thread(this::captureLoop, "local-asr");
         worker.start();

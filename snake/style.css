@@ -1,0 +1,15 @@
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #111827; color: #f9fafb; font-family: system-ui, -apple-system, sans-serif; }
+.game { width: min(92vw, 560px); }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+h1 { margin:0 0 6px; font-size:28px; } p { margin:0; color:#9ca3af; font-size:14px; }
+.score { background:#1f2937; padding:10px 16px; border-radius:12px; color:#9ca3af; } .score strong { color:#fff; font-size:22px; margin-left:6px; }
+.board-wrap { position:relative; background:#0b1220; border:2px solid #374151; border-radius:16px; padding:8px; box-shadow:0 18px 50px #0008; }
+canvas { display:block; width:100%; height:auto; border-radius:10px; background:#111827; }
+.overlay { position:absolute; inset:8px; display:grid; place-items:center; align-content:center; text-align:center; background:#0b1220cc; border-radius:10px; backdrop-filter:blur(3px); }
+.overlay h2 { margin:0 0 8px; font-size:30px; } .overlay p { margin-bottom:18px; }
+button { border:0; border-radius:10px; background:#22c55e; color:#052e16; font-weight:800; cursor:pointer; transition:.15s; } button:hover { transform:translateY(-1px); filter:brightness(1.08); }
+#restart { padding:11px 22px; font-size:16px; }
+.controls { display:none; text-align:center; margin-top:18px; } .controls button { width:52px; height:44px; margin:3px; font-size:22px; }
+footer { text-align:center; margin-top:16px; color:#9ca3af; font-size:14px; }
+@media (max-width:700px) { .controls { display:block; } }

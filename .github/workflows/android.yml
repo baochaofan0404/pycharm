@@ -17,6 +17,22 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - name: Download bilingual small INT8 model
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-small-bilingual-zh-en-2023-02-16.tar.bz2"
+          curl -L --fail --retry 3 -o model.tar.bz2 "$url"
+          mkdir -p model-unpack
+          tar -xjf model.tar.bz2 -C model-unpack
+          src="model-unpack/sherpa-onnx-streaming-zipformer-small-bilingual-zh-en-2023-02-16"
+          mkdir -p app/src/main/assets/model
+          cp "$src/encoder-epoch-99-avg-1.int8.onnx" app/src/main/assets/model/
+          cp "$src/decoder-epoch-99-avg-1.onnx" app/src/main/assets/model/
+          cp "$src/joiner-epoch-99-avg-1.int8.onnx" app/src/main/assets/model/
+          cp "$src/tokens.txt" app/src/main/assets/model/
+          cp "$src/bpe.model" app/src/main/assets/model/
+          ls -lh app/src/main/assets/model
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Build debug APK

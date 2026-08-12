@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="20dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Local ASR · 中文 + English" android:textSize="22sp" android:textStyle="bold" />
+    <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:text="模型未加载" />
+    <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:layout_marginTop="20dp" android:textSize="20sp"
+        android:textIsSelectable="true" />
+    <Button android:id="@+id/start" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="开始实时识别" />
+</LinearLayout>

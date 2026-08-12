@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body { font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.icon-button, .primary-button, .secondary-button, .filter-button { transition: .18s ease; }
+.icon-button { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:14px; background:#fff; border:1px solid #e2e8f0; font-size:20px; }
+.dark .icon-button { background:#0f172a; border-color:#1e293b; }
+.icon-button:hover, .secondary-button:hover { transform:translateY(-1px); }
+.text-input { height:48px; border-radius:14px; border:1px solid #cbd5e1; background:#fff; padding:0 15px; outline:none; transition:.18s ease; }
+.text-input:focus { border-color:#6366f1; box-shadow:0 0 0 3px rgba(99,102,241,.14); }
+.dark .text-input { background:#0f172a; border-color:#334155; color:#f8fafc; }
+.primary-button { height:48px; border:0; border-radius:14px; background:#4f46e5; color:white; padding:0 22px; font-weight:700; cursor:pointer; }
+.primary-button:hover { background:#4338ca; transform:translateY(-1px); }
+.secondary-button { height:40px; border:1px solid #e2e8f0; border-radius:12px; background:transparent; padding:0 12px; font-size:13px; font-weight:600; color:#475569; cursor:pointer; }
+.dark .secondary-button { border-color:#334155; color:#cbd5e1; }
+.filter-button { border:0; border-radius:10px; background:transparent; padding:9px 12px; color:#64748b; font-size:13px; font-weight:700; cursor:pointer; }
+.filter-button:hover { background:#f1f5f9; color:#334155; }
+.filter-button.active { background:#eef2ff; color:#4338ca; }
+.dark .filter-button:hover { background:#1e293b; color:#e2e8f0; }
+.dark .filter-button.active { background:#312e81; color:#e0e7ff; }
+.task-item { display:flex; align-items:center; gap:12px; border:1px solid #e2e8f0; border-radius:16px; padding:13px 14px; background:#fff; }
+.dark .task-item { border-color:#1e293b; background:#0f172a; }
+.task-item:hover { border-color:#c7d2fe; }
+.check { width:22px; height:22px; flex:none; border:2px solid #cbd5e1; border-radius:7px; background:transparent; cursor:pointer; display:grid; place-items:center; }
+.dark .check { border-color:#475569; }
+.check.done { border-color:#4f46e5; background:#4f46e5; color:white; }
+.task-text { min-width:0; flex:1; overflow-wrap:anywhere; }
+.task-text.done { text-decoration:line-through; color:#94a3b8; }
+.delete-button { border:0; background:transparent; color:#94a3b8; cursor:pointer; padding:8px; border-radius:9px; }
+.delete-button:hover { background:#fee2e2; color:#dc2626; }
+.edit-input { width:100%; min-width:0; border:1px solid #6366f1; border-radius:10px; padding:7px 9px; background:transparent; outline:none; }
